@@ -1,4 +1,13 @@
+// ===============================================================
+//  Dependencies
+// ===============================================================
+
 var express = require("express");
+
+
+// ================================================================
+// Sets up the Express App
+// ================================================================
 
 var PORT = process.env.PORT || 8000;
 var app = express();
@@ -10,15 +19,30 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Requiring our models for syncing
+var db = require("./models");
+
+// Require handlebars
 var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var routes = require("./controllers/burgersController.js");
+//================================================================
+// Routes
+//================================================================
 
-app.use(routes);
+// Method used in class to define route
+require("./controllers/burgersController")(app);
 
-app.listen(PORT, function() {
-  console.log("Listening on port:%s", PORT);
+
+// ===============================================================
+// Syncing our sequelize models and then starting our Express app
+// ===============================================================
+
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
+  
 });

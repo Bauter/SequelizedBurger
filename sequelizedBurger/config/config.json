@@ -16,9 +16,9 @@
     "operatorsAliases": false
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
+    "username": "bauter",
+    "password": "raspberry3.14",
+    "database": "burgers_db",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
