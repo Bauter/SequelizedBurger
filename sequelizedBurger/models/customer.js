@@ -12,7 +12,14 @@ module.exports = function(sequelize, DataTypes) {
       eaten: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
-      }
+      },
+      // customerId: {                                          // Trouble with association  
+      //   type: DataTypes.INTEGER,
+      //   references: {
+      //   model: 'burger',
+      //   key: 'id'
+      // }
+      // }
       
     },
     {
@@ -23,9 +30,9 @@ module.exports = function(sequelize, DataTypes) {
 
     // customer.associate = function(models) {
         
-    //     customer.hasMany(models.burger, {
+    //     customer.hasMany(models.burger, { foreignKey: 'burgerId'}
           
-    //     });
+    //     );
     //   };
   
      return customer;

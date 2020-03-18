@@ -8,17 +8,18 @@
     "operatorsAliases": false
   },
   "test": {
-    "username": "root",
-    "password": null,
+    "username": "bauter",
+    "password": "raspberry3.14",
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
   },
   "production": {
-    "username": "bauter",
-    "password": "raspberry3.14",
-    "database": "burgers_db",
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "use_env_variable":"JAWSDB_URL",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
