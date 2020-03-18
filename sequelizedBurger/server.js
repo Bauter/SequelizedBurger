@@ -2,8 +2,16 @@
 //  Dependencies
 // ===============================================================
 
+// Require handlebars
+var exphbs = require("express-handlebars");
 var express = require("express");
 
+// add package to allow prototype methods
+const Handlebars = require('handlebars')
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
+
+// Requiring our models for syncing
+var db = require("./models");
 
 // ================================================================
 // Sets up the Express App
@@ -25,7 +33,10 @@ var db = require("./models");
 // Require handlebars
 var exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({ 
+  defaultLayout: "main",
+  handlebars : allowInsecurePrototypeAccess(Handlebars)           //added this line to allow prototypes (see line 9)
+}));
 app.set("view engine", "handlebars");
 
 //================================================================
