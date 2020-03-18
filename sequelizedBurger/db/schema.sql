@@ -11,3 +11,12 @@ CREATE TABLE burgers (
     devoured BOOL DEFAULT false,
     PRIMARY KEY (id)
 );
+
+-- Customer table
+
+CREATE TABLE customers (
+    id INT NOT NULL AUTO_INCREMENT,
+    customer_name VARCHAR(255) NOT NULL,
+    eaten BOOL DEFAULT false,
+    PRIMARY KEY (id)
+);
