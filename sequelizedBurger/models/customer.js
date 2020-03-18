@@ -19,6 +19,8 @@ module.exports = function(sequelize, DataTypes) {
       timestamps: false
     });
 
+    // ASSOCIATE customer with table 'burger'
+
     // customer.associate = function(models) {
         
     //     customer.hasMany(models.burger, {
