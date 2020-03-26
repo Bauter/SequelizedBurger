@@ -463,6 +463,16 @@ $(document).ready(function() {
 
 ```
 
+## Testing Locally
+
+-If you plan to test locally (which you should!) follow these simple steps:
+
+1. Open "terminal" in your app folder (right click on 'server.js').
+2. Run commands:
+    `$node server.js`
+3. If everything is set up right you and no errors are logged in terminal after running the command you should now be able to navigate to your local server. In your web browser type in "localhost:8000/".
+4. Before you should be your locally hosted application. 
+
 ## Closing notes
 
 -If you choose to create your own JS script file and/or CSS file, please remember to include the required code in 'server.js' (see note section in server.js).
