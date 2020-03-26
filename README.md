@@ -15,6 +15,7 @@ https://sequelized-burger-app-8686.herokuapp.com/
 3. '.gitignore' file to write what files you would not like to upload. 
 4. NPM packages: 'express-handlebars', 'mysql2', '@handlebars/allow-prototype-access', 'express', and 'sequelize'.
 5. MySQL downloaded (you will need MySQL workbench) ("https://www.mysql.com/downloads/").
+6. If you wish to host the site to a dynamic server, create an account with 'Heroku' and download the required installation ("www.Heroku.com")
 
 ## Lets get set up!
 
@@ -78,6 +79,8 @@ node_modules
 5. Run `sequelize init` to create the necessary files ('index.js' & 'config.json').
 
 6. Use MySql Workbench to create a database called "burger_db".
+
+## What should each file look like?
 
 ### Schema & Seeds
 
@@ -311,7 +314,11 @@ db.sequelize.sync().then(function() {
 
 ##### NOTE:
 
--Pay close attention to how '@handlebars/allow-prototype-access' is used in this file. The purpose of this is to avoid any 'sequelized' errors cause by defiening new properties of an object. for more information on this error please see (https://handlebarsjs.com/api-reference/runtime-options.html#options-to-control-prototype-access).
+1. Pay close attention to how '@handlebars/allow-prototype-access' is used in this file. The purpose of this is to avoid any 'sequelized' errors cause by defining new properties of an object. for more information on this error please see (https://handlebarsjs.com/api-reference/runtime-options.html#options-to-control-prototype-access).
+
+2. When defining PORT, "8080" works on localhost, but if you plan on making use of an application like "Heroku" use "process.env.PORT || 8080". This will give Heroku the ability to make use of their own environment.
+
+3. If you plan on writing your OWN CSS, or JS files you will need to insert "app.use(express.static('public'));". This will avoid a "MIME" error in which the files are being interpreted as HTML/text opposed to script/styling. ("app/public") refers to the location in the project folder in which these add. files are located in.
 
 ### Config.json
 
@@ -345,6 +352,8 @@ Follow the following format if you plan to use 'Heroku' for your hosting
 ##### NOTE:
 
 -Pay close attention to 'production' in 'config.json'. Set the key value pairs to the above format. When 'creating' the app on heroku, go to the app. dashboard, select 'resources'. You should see a search bar for "Add-ons". Search for "jawsDB" select the add-on "JAWSDB" and select the basic free plan (you will be prompted to enter CC information to verify your Heroku account and proceed with this add-on).
+
+-Directions for creating an app on 'Heroku' can be found further down this 'readme'
 
 ### Handlebars
 
@@ -453,6 +462,29 @@ $(document).ready(function() {
 
 
 ```
+
+## Closing notes
+
+-If you choose to create your own JS script file and/or CSS file, please remember to include the required code in 'server.js' (see note section in server.js).
+
+-If you feel like posting to an application like "heroku" follow these steps:
+
+1. Create a Heroku account (its free!) and download installation files
+2. login to Heroku 
+3.  in your project root directory, run:
+
+`$ heroku create 'app-name here' `
+
+4. run your normal git commands:
+
+`$ git add . `
+`$ git commit -m "saving final changes"`
+
+5. Now instead of pushing to github, push to heroku.
+
+`$ git push heroku master`
+
+6. And thats it, your application should be created, with your files pushed. Navigate tou your heroku 'dashboard' (in browser) to view your application.
 
 ## Guidelines for Collaboration ##
 
